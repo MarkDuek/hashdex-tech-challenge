@@ -3,6 +3,7 @@ import os
 import constants
 import pandas as pd
 
+
 def download_and_unzip(years, download_dir="data"):
     base_url = "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_A{}.ZIP"
 
@@ -41,14 +42,9 @@ def download_and_unzip(years, download_dir="data"):
             print(f"Error unzipping file for {year}: {e}")
             continue
 
+
 def read_data(years, data_dir="data"):
     # Define the fixed widths for each field according to the layout:
-    # TIPREG (2), DATA_PREGAO (8), CODBDI (2), CODNEG (12), TPMERC (3),
-    # NOMRES (12), ESPECI (10), PRAZOT (3), MODREF (4), PREABE (13),
-    # PREMAX (13), PREMIN (13), PREMED (13), PREULT (13), PREOFC (13),
-    # PREOFV (13), TOTNEG (5), QUATOT (18), VOLTOT (18), PREEXE (13),
-    # INDOPC (1), DATVEN (8), FATCOT (7), PTOEXE (13), CODISI (12),
-    # DISMES (3)
     widths = constants.widths
     col_names = constants.col_names
 
@@ -127,4 +123,14 @@ def read_data(years, data_dir="data"):
         return None
 
 
+def get_filtered_history(df, assets_allocation):
+    # Filter the dataframe using the keys of assets_allocation
+    filtered_df = df[df['CODNEG'].isin(assets_allocation.keys())].copy()
+
+    # Pivot dataframe to get DATA_PREGAO as index
+    pivot_df = filtered_df.pivot(index='DATA_PREGAO', columns='CODNEG', values='PREULT')
+    pivot_df.sort_index(inplace=True)
+    pivot_df = pivot_df.reindex(sorted(pivot_df.columns), axis=1)
+
+    return pivot_df
 

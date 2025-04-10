@@ -1,3 +1,4 @@
+# Define the fixed widths for each field according to the layout
 widths = [
         2,
         8,
