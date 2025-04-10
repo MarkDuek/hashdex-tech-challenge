@@ -36,6 +36,7 @@ The goal of this project is to:
 ├── asset_risk_analysis.ipynb     # Main notebook for running the project
 ├── compute_metrics.py            # Risk metric functions
 ├── constants.py                  # B3 Data layout constants
+├── prepare_data.py               # Download and Unzip functions
 ├── data/                         # Folder to store downloaded historical files
 ├── images/                       # Folder to save images 
 └── tests/                       
