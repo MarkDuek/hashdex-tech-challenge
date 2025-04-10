@@ -33,9 +33,9 @@ The goal of this project is to:
 ```plaintext
 ├── README.md
 ├── requirements.txt
-├── asset_risk_analysis.ipynb  # Main notebook for running the project
-├── compute_metrics.py            # risk metric functions
-├── constants.py                  # data layout constants
+├── asset_risk_analysis.ipynb     # Main notebook for running the project
+├── compute_metrics.py            # Risk metric functions
+├── constants.py                  # B3 Data layout constants
 ├── data/                         # Folder to store downloaded historical files
 ├── images/                       # Folder to save images 
 └── tests/                       
