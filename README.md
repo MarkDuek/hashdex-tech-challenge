@@ -33,7 +33,7 @@ The goal of this project is to:
 ```plaintext
 ├── README.md
 ├── requirements.txt
-├── asset_history_analysis.ipynb  # Main notebook for running the project
+├── asset_risk_analysis.ipynb  # Main notebook for running the project
 ├── compute_metrics.py            # risk metric functions
 ├── constants.py                  # data layout constants
 ├── data/                         # Folder to store downloaded historical files
